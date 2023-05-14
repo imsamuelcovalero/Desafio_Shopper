@@ -6,7 +6,7 @@ const router = Router();
 
 const productsController = new ProductsController();
 
-router.post('/', validators.validateNewData, productsController.verifyNewData);
+router.post('/', validators.validateNewData, productsController.validateNewData);
 router.patch('/', productsController.updateProducts);
 
 export default router;
