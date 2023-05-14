@@ -1,8 +1,8 @@
 import * as express from 'express';
 import 'express-async-errors';
 import * as cors from 'cors';
-// import errorMiddleware from './middlewares/error.middleware';
-// import mainRoute from './routers/main.route';
+import errorMiddleware from './middlewares/error.middleware';
+import productsRoute from './routers/products.route';
 
 class App {
   public app: express.Express;
@@ -13,10 +13,10 @@ class App {
     this.config();
     this.app.use(cors());
 
-    // this.app.use('/main', mainRoute);
+    this.app.use('/products', productsRoute);
     this.app.get('/', (_req, res) => res.json({ ok: true }));
 
-    // this.app.use(errorMiddleware);
+    this.app.use(errorMiddleware);
   }
 
   private config(): void {
