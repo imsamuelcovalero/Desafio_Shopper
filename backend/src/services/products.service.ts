@@ -10,7 +10,6 @@ export default class ProductService {
     this.model = new ProductModel();
   }
 
-  // função que valida newPrice para verificar se é um valor numérico valido
   private validateNewPrice(newPrice: number, productData: IProductData): number {
     const parsedNewPrice = parseFloat(String(newPrice));
     if (isNaN(parsedNewPrice)) {
@@ -122,6 +121,7 @@ export default class ProductService {
         status: [],
       } as IProductData;
 
+      // Verifica se o novo preço é um valor numérico valido
       const parsedNewPrice = this.validateNewPrice(newPrice, productData);
 
       // Verifica se o novo preço respeita as regras de negócio

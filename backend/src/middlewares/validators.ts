@@ -1,11 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import CustomError from '../errors/CustomError';
 import { newDataSchema } from './joySchema';
-// import { IGetUserAuthInfoRequest } from '../interfaces/decoded.interface';
 
 const validators = {
   validateNewData(req: Request, _res: Response, next: NextFunction) {
-    console.log('validateLogin', req.body);
+    console.log('validateBody', req.body);
 
     const schema = newDataSchema;
     const { error } = schema.validate(req.body);
