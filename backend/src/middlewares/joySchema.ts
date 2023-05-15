@@ -8,7 +8,7 @@ const newDataSchema = joi.object({
   }),
   new_price: joi.number().required().messages({
     'string.empty': ALL_FIELDS_MUST_BE_FILLED,
-    'number.base': '400|The new price must be a valid number',
+    // 'number.base': '400|The new price must be a valid number',
   }),
 });
 
