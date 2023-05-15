@@ -46,11 +46,6 @@ export default class ProductService {
 
         let sumOfItemPrices = 0;
         for (const item of packItems) {
-          const product = await ProductModel.findOne({ where: { code: item.productId } });
-          if (!product) {
-            throw new CustomError(400, `Produto com código ${item.productId} não encontrado no pacote ${code}`);
-          }
-
           // Verifica se o produto está na lista de produtos com novos preços
           const newPriceProduct = products.find(prod => prod.code === item.productId);
           if (!newPriceProduct) {
@@ -62,6 +57,43 @@ export default class ProductService {
 
         if (parsedNewPrice !== sumOfItemPrices) {
           throw new CustomError(400, `O preço do pacote de código ${code} não é igual à soma dos preços dos itens que o compõem`);
+        }
+        // Aqui deve ser verificada a regra de negócios para componentes
+      } else {
+        // Procurar todos os pacotes que incluem este produto
+        const includedInPacks = await PackModel.findAll({ where: { productId: code } });
+
+        for (const pack of includedInPacks) {
+          // Verificar se o pacote está na lista de produtos com novos preços
+          const newPricePack = products.find(prod => prod.code === pack.packId);
+          if (!newPricePack) {
+            throw new CustomError(400, `Pacote com código ${pack.packId} que inclui o produto ${code} não está presente na lista de novos preços`);
+          }
+
+          // Procurar todos os produtos que fazem parte deste pacote
+          const packItems = await PackModel.findAll({ where: { packId: pack.packId } });
+
+          let sumOfItemPrices = 0;
+          for (const item of packItems) {
+            // Verificar se o produto está na lista de produtos com novos preços
+            const newPriceProduct = products.find(prod => prod.code === item.productId);
+
+            if (newPriceProduct) {
+              // Se o novo preço do produto estiver presente, use-o, caso contrário, use o preço antigo
+              sumOfItemPrices += newPriceProduct.newPrice * item.qty
+            } else {
+              const productDetails = await ProductModel.findOne({ where: { code: item.productId } });
+              if (productDetails) {
+                sumOfItemPrices += productDetails.salesPrice * item.qty;
+              } else {
+                throw new CustomError(400, `Produto com código ${item.productId} não encontrado`);
+              }
+            }
+          }
+
+          if (newPricePack.newPrice !== sumOfItemPrices) {
+            throw new CustomError(400, `O preço do pacote de código ${pack.packId} não é igual à soma dos preços dos itens que o compõem`);
+          }
         }
       }
 
