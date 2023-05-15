@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import CustomError from '../errors/CustomError';
-import { newDataSchema } from './joySchemas';
+import { newDataSchema } from './joySchema';
 // import { IGetUserAuthInfoRequest } from '../interfaces/decoded.interface';
 
 const validators = {
