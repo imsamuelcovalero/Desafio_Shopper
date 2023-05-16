@@ -3,7 +3,7 @@
 O Desafio Shopper é uma ferramenta que permite a atualização massiva de preços de produtos para lojas virtuais. Com React.js no frontend e Node.js no backend, a aplicação valida os dados de um arquivo CSV, exibe as informações dos produtos e, caso não haja violações de regras, possibilita a atualização dos preços no banco de dados MySQL. 
 
 ## Sumário
-- [Bem-vindo ao Desafio Shopper](#bem-vindo-ao-desafio-shopper)
+- [Bem-vindo ao Desafio_Shopper](#bem-vindo-ao-desafio-shopper)
 - [Contexto](#contexto)
 - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
 - [Instalação e Execução](#instalação-e-execução)
@@ -42,11 +42,11 @@ Sequelize: O Sequelize é um ORM (Object-Relational Mapping) em JavaScript que f
 ## Instalação e Execução
 ### Download do projeto
 ```
-git clone git@github.com:imsamuelcovalero/Desafio_Sopper.git
+git clone git@github.com:imsamuelcovalero/Desafio_Shopper.git
 ```
 ### Instalar dependências
 ```
-cd Desafio_Sopper
+cd Desafio_Shopper
 
 cd backend
 npm install
@@ -56,7 +56,7 @@ npm install
 ```
 ### Rodar a aplicação
 ```
-cd Desafio_Sopper
+cd Desafio_Shopper
 
 cd backend
 npm run dev
