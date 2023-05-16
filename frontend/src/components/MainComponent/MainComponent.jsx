@@ -99,40 +99,44 @@ function MainComponent() {
             </tbody>
           </table>
         </div>
+        <div id="csvSection">
+          <div id="csvFile">
+            {/* Div que receberá o arquivo CSV para nova precificação dos produtos */}
+            <p>
+              Selecione o arquivo CSV para nova precificação dos produtos:
+            </p>
+            <input
+              type="file"
+              accept=".csv"
+              onChange={handleFileUpload}
+              onClick={() => setProductsToRender([])}
+            />
+          </div>
+          <div>
+            {/* Botão para validar o conteúdo do arquivo no backend */}
+            <button
+              id="validationBtn"
+              type="button"
+              onClick={handleValidateData}
+              disabled={productsFromCsv.length === 0 || productsToRender.length > 0}
+            >
+              VALIDAR
+            </button>
+          </div>
+          <div>
+            {/* Botão para atualizar o conteúdo do arquivo no backend */}
+            <button
+              id="updateBtn"
+              type="button"
+              onClick={handleUpdatePrices}
+              disabled={productsToRender.length === 0 || !productsToRender.every((product) => product.status[0] === 'OK')}
+            >
+              ATUALIZAR
+            </button>
+            <p>{message}</p>
+          </div>
+        </div>
       </ProductsDivS>
-      <div id="csvFile">
-        {/* Div que receberá o arquivo CSV para nova precificação dos produtos */}
-        <p>
-          Selecione o arquivo CSV para nova precificação dos produtos:
-        </p>
-        <input
-          type="file"
-          accept=".csv"
-          onChange={handleFileUpload}
-          onClick={() => setProductsToRender([])}
-        />
-      </div>
-      <div id="validationBtn">
-        {/* Botão para validar o conteúdo do arquivo no backend */}
-        <button
-          type="button"
-          onClick={handleValidateData}
-          disabled={productsFromCsv.length === 0 || productsToRender.length > 0}
-        >
-          VALIDAR
-        </button>
-      </div>
-      <div id="updateBtn">
-        {/* Botão para atualizar o conteúdo do arquivo no backend */}
-        <button
-          type="button"
-          onClick={handleUpdatePrices}
-          disabled={productsToRender.length === 0 || !productsToRender.every((product) => product.status[0] === 'OK')}
-        >
-          ATUALIZAR
-        </button>
-        <p>{message}</p>
-      </div>
     </div>
   );
 }

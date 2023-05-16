@@ -21,9 +21,9 @@ export interface IProduct {
 }
 
 export interface IProductData {
-  codigo: number;
-  nome: string;
-  precoAtual: number;
-  novoPreco: number;
+  code: number;
+  name: string;
+  currentPrice: number;
+  newPrice: number;
   status: string[];
 }

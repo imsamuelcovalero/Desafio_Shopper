@@ -2,6 +2,7 @@ import { IBody, IProductUpdate, IProductData } from '../interfaces/product.inter
 import ProductModel from '../database/models/product.model';
 import PackModel from '../database/models/pack.model';
 import CustomError from '../errors/CustomError';
+import { log } from 'console';
 
 export default class ProductService {
   model: ProductModel;
@@ -10,12 +11,24 @@ export default class ProductService {
     this.model = new ProductModel();
   }
 
-  private validateNewPrice(newPrice: number, productData: IProductData): number {
-    const parsedNewPrice = parseFloat(String(newPrice));
+  private validateNewPrice(newPrice: number | string, productData: IProductData): number {
+    // Converter newPrice para string
+    let newPriceString = String(newPrice);
+
+    // Substituir vírgula por ponto
+    if (newPriceString.includes(',')) {
+      newPriceString = newPriceString.replace(',', '.');
+    }
+
+    // Converter para número
+    const parsedNewPrice = parseFloat(newPriceString);
+
     if (isNaN(parsedNewPrice)) {
       productData.status.push('O novo preço deve ser um número válido');
     }
-    productData.novoPreco = parsedNewPrice;
+
+    productData.newPrice = parsedNewPrice;
+
     return parsedNewPrice;
   }
 
@@ -93,17 +106,20 @@ export default class ProductService {
 
     for (const product of products) {
       const { code, newPrice } = product;
+      console.log('code', code);
 
       // Verificar se o código do produto existe
       const existingProduct = await ProductModel.findOne({ where: { code } });
+      console.log('existingProduct', existingProduct);
+
 
       // Se não existir, adicionar o produto com status de erro e ir para o próximo
       if (!existingProduct) {
         const productData: IProductData = {
-          codigo: code,
-          nome: 'Desconhecido',
-          precoAtual: 0,
-          novoPreco: newPrice,
+          code,
+          name: 'Desconhecido',
+          currentPrice: 0,
+          newPrice,
           status: ['Produto com código ${code} não encontrado'],
         } as IProductData;
 
@@ -114,10 +130,10 @@ export default class ProductService {
       const { salesPrice, costPrice } = existingProduct;
 
       const productData: IProductData = {
-        codigo: code,
-        nome: existingProduct.name,
-        precoAtual: salesPrice,
-        novoPreco: newPrice,
+        code,
+        name: existingProduct.name,
+        currentPrice: salesPrice,
+        newPrice,
         status: [],
       } as IProductData;
 
@@ -142,6 +158,8 @@ export default class ProductService {
 
       validatedData.push(productData);
     }
+
+    console.log('validatedData', validatedData);
 
     return validatedData;
   };

@@ -6,9 +6,11 @@ export const ProductsDivS = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   padding: 16px;
   gap: 16px;
+
   #tableSection {
     border-radius: 8px;
     padding: 8px;
@@ -68,6 +70,58 @@ export const ProductsDivS = styled.div`
         background-color: var(--tertiary);
       }
     }
+  }
+
+  #csvSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--main);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  #csvFile {
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #validationBtn {
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--extra);
+    color: var(--buttonText);
+    border: 2px solid var(--buttonBorder);
+    text-align: center;
+  }
+
+  #validationBtn:disabled {
+    background-color: var(--buttonBackgroundDisabled);
+    color: var(--buttonText);
+  }
+
+  #updateBtn {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--extra);
+    color: var(--buttonText);
+    border: 2px solid var(--buttonBorder);
+    text-align: center;
+  }
+
+  #updateBtn:disabled {
+    background-color: var(--buttonBackgroundDisabled);
+    color: var(--buttonText);
   }
 `;
 
