@@ -1,0 +1,73 @@
+version: '3.9' # Versão do Docker Compose
+
+services:
+  # Define os serviços (containers) que serão iniciados
+
+  frontend:
+    # Nome do serviço de frontend
+    container_name: shopper_frontend # Nome do container Docker
+    build: ./frontend # Caminho para o Dockerfile do frontend
+    ports:
+      - 3000:3000 # Mapeia a porta 3000 do container para a porta 3000 do host
+    working_dir: /app-frontend # Define o diretório de trabalho dentro do container
+    volumes:
+      - ./frontend:/app-frontend # Mapeia o diretório ./frontend do host para o diretório /app-frontend do container
+    restart: always # Reinicia o container automaticamente se ele parar
+    networks:
+      - shopper_network-back-to-front # Adiciona este serviço à rede especificada
+    depends_on:
+      - backend # Este serviço depende do serviço backend
+
+  backend:
+    # Nome do serviço de backend
+    container_name: shopper_backend # Nome do container Docker
+    build: ./backend # Caminho para o Dockerfile do backend
+    ports:
+      - 3001:3001 # Mapeia a porta 3001 do container para a porta 3001 do host
+    working_dir: /app-backend # Define o diretório de trabalho dentro do container
+    volumes:
+      - ./backend:/app-backend # Mapeia o diretório ./backend do host para o diretório /app-backend do container
+    tty: true # Habilita o pseudo-TTY
+    stdin_open: true # Mantém o STDIN aberto mesmo se não anexado
+    command: bash -c "npm install && npm run dev" # Comando para iniciar o serviço  
+    restart: always # Reinicia o container automaticamente se ele parar
+    environment:
+      # Variáveis de ambiente para o serviço
+      APP_PORT: 3001
+      JWT_SECRET: jwt_secret
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+      MYSQL_DB: shopper_db
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+    networks:
+      - shopper_network-back-to-front
+      - shopper_network-back-to-bd
+    depends_on:
+      - db # Este serviço depende do serviço db
+    cap_add:
+      - SYS_NICE # Adiciona capacidades ao container
+
+  db:
+    # Nome do serviço do banco de dados
+    image: mysql:8.0 # Usa a imagem do MySQL versão 8.0 do Docker Hub
+    container_name: shopper_db # Nome do container Docker
+    platform: linux/x86_64 # Plataforma do container
+    ports:
+      - 3306:3306 # Mapeia a porta 3306 do container para a porta 3306 do host
+    restart: 'always' # Reinicia o container automaticamente se ele parar
+    environment:
+      # Variáveis de ambiente para o serviço
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: shopper_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+    networks:
+      - shopper_network-back-to-bd # Adiciona este serviço à rede especificada
+    cap_add:
+      - SYS_NICE # Adiciona capacidades ao container
+    expose:
+      - '3306' # Expõe a porta 330
+networks:
+  shopper_network-back-to-front: {}
+  shopper_network-back-to-bd: {}

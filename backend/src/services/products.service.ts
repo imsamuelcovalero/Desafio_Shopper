@@ -106,11 +106,9 @@ export default class ProductService {
 
     for (const product of products) {
       const { code, newPrice } = product;
-      console.log('code', code);
 
       // Verificar se o código do produto existe
       const existingProduct = await ProductModel.findOne({ where: { code } });
-      console.log('existingProduct', existingProduct);
 
 
       // Se não existir, adicionar o produto com status de erro e ir para o próximo
@@ -159,8 +157,6 @@ export default class ProductService {
       validatedData.push(productData);
     }
 
-    console.log('validatedData', validatedData);
-
     return validatedData;
   };
 
@@ -168,17 +164,17 @@ export default class ProductService {
     for (const product of body) {
       const { code, newPrice } = product;
 
-      // Encontrar o produto existente
+      // Encontra o produto existente
       const existingProduct = await ProductModel.findOne({ where: { code } });
 
       if (existingProduct === null) {
         throw new CustomError(404, `Produto com o código ${code} não encontrado`);
       }
 
-      // Atualizar o preço de venda do produto
+      // Atualiza o preço de venda do produto
       existingProduct.salesPrice = newPrice;
 
-      // Salvar o produto com o novo preço
+      // Salva o produto com o novo preço
       await existingProduct.save();
     }
 
