@@ -11,10 +11,6 @@ function MainComponent() {
   const [productsFromCsv, setProductsFromCsv] = useState([]);
   const [message, setMessage] = useState('');
 
-  // useEffect(() => {
-  //   setProductsToRender(products);
-  // }, [products, balance]);
-
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     Papa.parse(file, {
@@ -109,14 +105,19 @@ function MainComponent() {
         <p>
           Selecione o arquivo CSV para nova precificação dos produtos:
         </p>
-        <input type="file" accept=".csv" onChange={handleFileUpload} />
+        <input
+          type="file"
+          accept=".csv"
+          onChange={handleFileUpload}
+          onClick={() => setProductsToRender([])}
+        />
       </div>
       <div id="validationBtn">
         {/* Botão para validar o conteúdo do arquivo no backend */}
         <button
           type="button"
           onClick={handleValidateData}
-          disabled={productsFromCsv.length === 0}
+          disabled={productsFromCsv.length === 0 || productsToRender.length > 0}
         >
           VALIDAR
         </button>
@@ -126,7 +127,7 @@ function MainComponent() {
         <button
           type="button"
           onClick={handleUpdatePrices}
-          disabled={productsToRender.length === 0}
+          disabled={productsToRender.length === 0 || !productsToRender.every((product) => product.status[0] === 'OK')}
         >
           ATUALIZAR
         </button>

@@ -1,4 +1,3 @@
-// cria e exporta a função formatCurrency
 export default function formatCurrency(value) {
   // Verifique se value pode ser convertido em um número
   const parsedValue = parseFloat(String(value).replace(',', '.'));
