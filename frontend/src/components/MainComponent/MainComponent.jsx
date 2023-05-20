@@ -40,6 +40,7 @@ function MainComponent() {
 
     // Enviar para a API
     const result = await api.validateData(newOrder);
+    console.log('Resultado da validação:', result);
     if (result.error) {
       alert(result.message);
       return;

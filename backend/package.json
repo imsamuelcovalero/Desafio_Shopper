@@ -7,7 +7,8 @@
     "build": "npx -y tsc",
     "predev": "npm run build && npm run db:reset",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "import:sql": "ts-node ./src/services/DatabaseImportService/SqlImportService.ts",
     "start": "ts-node src/index.ts",
     "dev": "nodemon --watch \"./src/**\" --exec ts-node ./src/index.ts"
   },

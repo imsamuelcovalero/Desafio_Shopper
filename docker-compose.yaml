@@ -29,7 +29,8 @@ services:
       - ./backend:/app-backend # Mapeia o diretório ./backend do host para o diretório /app-backend do container
     tty: true # Habilita o pseudo-TTY
     stdin_open: true # Mantém o STDIN aberto mesmo se não anexado
-    command: "npm run dev" # Comando para iniciar o serviço  
+    user: "1000:1000" # Define o usuário e grupo do container, foi necessário para o docker executar os scripts do package.json. O usuário e grupo 1000 são os padrões do Linux: id -u <seu_usuario> e id -g <seu_usuario> para ver os seus ids
+    command: "npm run dev" # Comando para iniciar o serviço padrão => "npm run dev"
     restart: always # Reinicia o container automaticamente se ele parar
     environment:
       # Variáveis de ambiente para o serviço
@@ -59,9 +60,6 @@ services:
     environment:
       # Variáveis de ambiente para o serviço
       MYSQL_ROOT_PASSWORD: 123456
-      # MYSQL_DATABASE: shopper_db
-      # MYSQL_USER: root
-      # MYSQL_PASSWORD: 123456
     networks:
       - shopper_network-back-to-bd # Adiciona este serviço à rede especificada
     cap_add:

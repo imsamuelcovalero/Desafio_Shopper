@@ -88,6 +88,8 @@ export default class ProductService {
           if (productDetails) {
             sumOfItemPrices += productDetails.salesPrice * item.qty;
           } else {
+            console.log('item.productId', item.productId);
+
             productData.status.push(`Produto com código ${item.productId} não encontrado`);
           }
         }
@@ -106,6 +108,7 @@ export default class ProductService {
 
     for (const product of products) {
       const { code, newPrice } = product;
+      log('code', code);
 
       // Verificar se o código do produto existe
       const existingProduct = await ProductModel.findOne({ where: { code } });
@@ -118,7 +121,7 @@ export default class ProductService {
           name: 'Desconhecido',
           currentPrice: 0,
           newPrice,
-          status: ['Produto com código ${code} não encontrado'],
+          status: [`Produto com código ${code} não encontrado`],
         } as IProductData;
 
         validatedData.push(productData);
@@ -156,6 +159,8 @@ export default class ProductService {
 
       validatedData.push(productData);
     }
+
+    console.log('validatedData', validatedData);
 
     return validatedData;
   };
