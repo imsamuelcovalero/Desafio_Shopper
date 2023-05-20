@@ -6,11 +6,12 @@ COPY package* ./
 
 RUN npm install
 
+RUN apk add --no-cache bash
+
 COPY . .
 
 EXPOSE 3001
 
 RUN npx tsc
 
-# CMD ["npm", "run", "db:reset" && "npm", "run", "dev"]
 CMD ["npm", "start"]

@@ -1,8 +1,7 @@
 // SqlImportService.ts
 import * as mysql from 'mysql2/promise';
 import * as dbConfig from '../../database/config/database'
-import { readFileSync, writeFileSync } from 'fs';
-// import path = require('path');
+import { readFileSync } from 'fs';
 import writeJSONFile from './WriteJSONFileService';
 
 
@@ -32,12 +31,12 @@ class SqlImportService {
     });
   }
 
-  async importSqlFile(filePath: string): Promise<void> {
+  async importSqlFile(filePath: string, mode: 'json' | 'db' | 'both' = 'both'): Promise<void> {
     let sqlContent = readFileSync(filePath).toString();
 
     /* Para uso posterior na função de criação do arquivo json, é preciso jogar numa variável a estrutura das tabelas, que está associado ao comando CREATE TABLE. */
     const tableStructure = sqlContent.match(/CREATE TABLE .*?\n\)/gs);
-    console.log('tableStructureOnSqlImport', tableStructure);
+    // console.log('tableStructureOnSqlImport', tableStructure);
 
     /* Remover instruções "CREATE TABLE". Neste caso não queremos criar as tabelas, pois elas já existem. caso queria executar todo o arquivo, basta remover esta linha. E caso o arquivo possua "DROP TABLE IF EXISTS", também é necessário removê-lo ou deixar ambos, para que após dropar as tabelas possa recriá-las. */
     sqlContent = sqlContent.replace(/CREATE TABLE .*?;/gs, '');
@@ -49,17 +48,20 @@ class SqlImportService {
     const queries = sqlContent.split(';').map(query => query.trim()).filter(query => query);
     // console.log('queries', queries);
 
+    if (mode === 'json' || mode === 'both') {
+      // Chama a função auxiliar para criar o arquivo json
+      if (tableStructure !== null) {
+        writeJSONFile(queries, tableStructure);
+      } else {
+        console.log('Nenhuma estrutura de tabela encontrada');
+      }
+    }
 
-    // Executar cada query
-    // for (const query of queries) {
-    //   await this.executeRawQuery(query);
-    // }
-
-    // Chama a função auxiliar para criar o arquivo json
-    if (tableStructure !== null) {
-      writeJSONFile(queries, tableStructure);
-    } else {
-      console.log('Nenhuma estrutura de tabela encontrada');
+    if (mode === 'db' || mode === 'both') {
+      /* Executar cada query */
+      const queryPromises = queries.map(query => this.executeRawQuery(query));
+      await Promise.all(queryPromises);
+      await this.pool.end();
     }
   }
 

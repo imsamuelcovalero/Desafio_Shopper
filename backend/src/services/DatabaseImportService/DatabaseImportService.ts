@@ -11,7 +11,7 @@ export class DatabaseImportService {
     this.sqlImportService = new SqlImportService();
   }
 
-  async importDataFromSqlFile() {
+  async importDataFromSqlFile(mode: 'json' | 'db' | 'both' = 'both') {
     const sqlDirectory = join(__dirname, '../..', 'database');
     const filesInDirectory = readdirSync(sqlDirectory);
 
@@ -27,6 +27,6 @@ export class DatabaseImportService {
     const sqlFilePath = join(sqlDirectory, sqlFileName);
     console.log('Importando arquivo SQL: ', sqlFilePath);
 
-    await this.sqlImportService.importSqlFile(sqlFilePath);
+    await this.sqlImportService.importSqlFile(sqlFilePath, mode);
   }
 }

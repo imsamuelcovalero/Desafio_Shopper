@@ -49,7 +49,7 @@ export default function writeJSONFile(data: string[], tableStructure: string[]):
     }
 
     const tableValues = valuesMatch[0].split(',').map(value => value.trim().replace(/^'(.*)'$/, '$1'));
-    console.log('tableValues', tableValues);
+    // console.log('tableValues', tableValues);
 
     const newObj = {} as any;
 
