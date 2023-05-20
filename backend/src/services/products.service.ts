@@ -3,6 +3,7 @@ import ProductModel from '../database/models/product.model';
 import PackModel from '../database/models/pack.model';
 import CustomError from '../errors/CustomError';
 import { log } from 'console';
+import { DatabaseImportService } from './DatabaseImportService/DatabaseImportService';
 
 export default class ProductService {
   model: ProductModel;
@@ -103,6 +104,9 @@ export default class ProductService {
 
   validateNewData = async (body: IBody): Promise<Array<IProductData>> => {
     const { products } = body;
+
+    const databaseImportService = new DatabaseImportService();
+    await databaseImportService.importDataFromSqlFile();
 
     const validatedData = [];
 

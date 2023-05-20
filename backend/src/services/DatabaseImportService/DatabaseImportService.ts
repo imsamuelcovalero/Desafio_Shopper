@@ -1,5 +1,6 @@
 /* O arquivo .sql deve estar na pasta backend/src/database e só deve haver UM arquivo .sql neste local*/
-import SqlImportService from './SqlImportService.js';
+// DatabaseImportService.ts
+import SqlImportService from './SqlImportService';
 import { join } from 'path';
 import { readdirSync } from 'fs';
 
@@ -11,7 +12,7 @@ export class DatabaseImportService {
   }
 
   async importDataFromSqlFile() {
-    const sqlDirectory = join(__dirname, '..', 'database');
+    const sqlDirectory = join(__dirname, '../..', 'database');
     const filesInDirectory = readdirSync(sqlDirectory);
 
     // filtrar os arquivos .sql

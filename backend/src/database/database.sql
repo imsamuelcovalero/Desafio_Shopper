@@ -1,9 +1,6 @@
 
 -- seleciona a database shopper_db
 USE shopper_db;
-DROP TABLE IF EXISTS productPacks;
-DROP TABLE IF EXISTS packs;
-DROP TABLE IF EXISTS products;
 
 
 CREATE TABLE products 

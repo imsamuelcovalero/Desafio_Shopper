@@ -65,7 +65,11 @@ services:
     cap_add:
       - SYS_NICE # Adiciona capacidades ao container
     expose:
-      - '3306' # Expõe a porta 330
+      - '3306' # Expõe a porta 3306
+    # Caso queira executar um script SQL ao iniciar o container, descomente as linhas abaixo
+    # volumes:
+    #   - ./backend/src/database/database.sql:/docker-entrypoint-initdb.d/database.sql
+
 networks:
   shopper_network-back-to-front: {}
   shopper_network-back-to-bd: {}

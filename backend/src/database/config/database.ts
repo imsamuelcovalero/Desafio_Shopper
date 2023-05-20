@@ -1,4 +1,4 @@
-// Quando usar o docker TEM que estar o nome do serviço em "host", neste caso é "db". NÃO PODE SER LOCALHOST!
+// Quando usar o docker se der erro tem que mudar o nome do serviço em "host", neste caso é "db".
 
 import 'dotenv/config';
 import { Options } from 'sequelize';

@@ -1,7 +1,9 @@
 // SqlImportService.ts
 import * as mysql from 'mysql2/promise';
 import * as dbConfig from '../../database/config/database'
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
+import path = require('path');
+
 
 const config = dbConfig as {
   host: string;
@@ -12,10 +14,11 @@ const config = dbConfig as {
 };
 
 class SqlImportService {
-  private connection: any;
+  // Parece ser melhor prática chama de pool ao invés de connection
+  private pool: any;
 
   constructor() {
-    this.connection = mysql.createConnection({
+    this.pool = mysql.createPool({
       host: config.host,
       port: config.port || 3306,
       user: config.username,
@@ -31,7 +34,7 @@ class SqlImportService {
   async importSqlFile(filePath: string): Promise<void> {
     let sqlContent = readFileSync(filePath).toString();
 
-    // Remover instruções CREATE TABLE
+    /* Remover instruções "CREATE TABLE". Neste caso não queremos criar as tabelas, pois elas já existem. caso queria executar todo o arquivo, basta remover esta linha. E caso o arquivo possua "DROP TABLE IF EXISTS", também é necessário removê-lo ou deixar ambos, para que após dropar as tabelas possa recriá-las. */
     sqlContent = sqlContent.replace(/CREATE TABLE .*?;/gs, '');
 
     // Substituir caracteres especiais
@@ -46,11 +49,22 @@ class SqlImportService {
     for (const query of queries) {
       await this.executeRawQuery(query);
     }
+
+    // Após a importação do arquivo SQL e execução das consultas, escreva os dados em um arquivo JSON
+    this.writeToJSONFile(queries);
   }
 
   async executeRawQuery(query: string): Promise<void> {
     console.log('Executando query: ', query);
-    await this.connection.query(query);
+    const connection = await this.pool.getConnection();
+    await connection.query(query);
+    connection.release();
+  }
+
+  writeToJSONFile(data: any): void {
+    const outputPath = path.join(__dirname, '../../database/database.json');
+    writeFileSync(outputPath, JSON.stringify(data, null, 2));
+    console.log('Os dados foram escritos com sucesso no arquivo database.json');
   }
 }
 
