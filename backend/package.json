@@ -10,7 +10,8 @@
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "import:sql": "./database_install.sh",
     "start": "ts-node src/index.ts",
-    "dev": "nodemon --watch \"./src/**\" --exec ts-node ./src/index.ts"
+    "dev": "nodemon --watch \"./src/**\" --exec ts-node ./src/index.ts",
+    "dev:complete": "concurrently \"npm:dev\" \"npm run import:sql 3\""
   },
   "keywords": [],
   "author": "",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "express-async-errors": "^3.1.1",
     "joi": "^17.9.2",

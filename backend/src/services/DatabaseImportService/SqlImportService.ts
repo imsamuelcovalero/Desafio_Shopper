@@ -34,7 +34,7 @@ class SqlImportService {
   async importSqlFile(filePath: string, mode: 'json' | 'db' | 'both' = 'both'): Promise<void> {
     let sqlContent = readFileSync(filePath).toString();
 
-    /* Para uso posterior na função de criação do arquivo json, é preciso jogar numa variável a estrutura das tabelas, que está associado ao comando CREATE TABLE. */
+    /* Para uso posterior na função writeJSONFile, é preciso jogar numa variável a estrutura das tabelas, que está associado ao comando CREATE TABLE. */
     const tableStructure = sqlContent.match(/CREATE TABLE .*?\n\)/gs);
     // console.log('tableStructureOnSqlImport', tableStructure);
 
