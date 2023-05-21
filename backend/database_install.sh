@@ -14,9 +14,9 @@ then
 fi
 
 # Garante que o banco de dados esteja pronto para receber conexões
-echo "Aguardando o banco de dados ficar pronto..."
-sleep 10  # Espera por 30 segundos
-echo "Iniciando a importação dos dados..."
+# echo "Aguardando o banco de dados ficar pronto..."
+# sleep 10  # Espera por 30 segundos
+# echo "Iniciando a importação dos dados..."
 
 case $option in
   1) 

@@ -3,9 +3,13 @@ import path = require('path');
 
 export default function writeJSONFile(data: string[], tableStructure: string[]): void {
   const filteredData = data.filter(line => line.startsWith('INSERT INTO'));
+  console.log('data', data);
+  console.log('tableStructure', tableStructure);
+  console.log('filteredData', filteredData);
 
   let tableData: any = {};
   let tableNames: string[] = [];
+  let columnNamesMap: { [tableName: string]: string[] } = {}; // Variável externa para armazenar as columnNames
 
   /* Para cada linha de estrutura, extrair o nome da tabela e as colunas */
   tableStructure.forEach((tableStr: string) => {
@@ -28,7 +32,7 @@ export default function writeJSONFile(data: string[], tableStructure: string[]):
     const columnNames = columnLines.map(line => line.split(' ')[0]); // A primeira palavra de cada linha deve ser o nome da coluna
 
     if (tableName) {
-      tableData[tableName] = columnNames;
+      columnNamesMap[tableName] = columnNames; // Armazena as columnNames na variável externa
       tableNames.push(tableName);
     }
   });
@@ -53,7 +57,7 @@ export default function writeJSONFile(data: string[], tableStructure: string[]):
 
     const newObj = {} as any;
 
-    const columnNames = tableData[tableName];
+    const columnNames = columnNamesMap[tableName];
     if (columnNames && columnNames.length) {
       columnNames.forEach((column: string | number, index: string | number) => {
         newObj[column] = tableValues[+index];

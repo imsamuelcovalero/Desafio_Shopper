@@ -3,6 +3,7 @@ import * as mysql from 'mysql2/promise';
 import * as dbConfig from '../../database/config/database'
 import { readFileSync } from 'fs';
 import writeJSONFile from './WriteJSONFileService';
+import sqlParaJSON from './WriteJSONFile';
 
 
 const config = dbConfig as {
@@ -34,6 +35,7 @@ class SqlImportService {
   async importSqlFile(filePath: string, mode: 'json' | 'db' | 'both' = 'both'): Promise<void> {
     let sqlContent = readFileSync(filePath).toString();
 
+
     /* Para uso posterior na função writeJSONFile, é preciso jogar numa variável a estrutura das tabelas, que está associado ao comando CREATE TABLE. */
     const tableStructure = sqlContent.match(/CREATE TABLE .*?\n\)/gs);
     // console.log('tableStructureOnSqlImport', tableStructure);
@@ -51,6 +53,7 @@ class SqlImportService {
     if (mode === 'json' || mode === 'both') {
       // Chama a função auxiliar para criar o arquivo json
       if (tableStructure !== null) {
+        // sqlParaJSON(sqlContent)
         writeJSONFile(queries, tableStructure);
       } else {
         console.log('Nenhuma estrutura de tabela encontrada');
