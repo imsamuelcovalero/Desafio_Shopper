@@ -3,9 +3,9 @@ import path = require('path');
 
 export default function writeJSONFile(data: string[], tableStructure: string[]): void {
   const filteredData = data.filter(line => line.startsWith('INSERT INTO'));
-  console.log('data', data);
-  console.log('tableStructure', tableStructure);
-  console.log('filteredData', filteredData);
+  // console.log('data', data);
+  // console.log('tableStructure', tableStructure);
+  // console.log('filteredData', filteredData);
 
   let tableData: any = {};
   let tableNames: string[] = [];

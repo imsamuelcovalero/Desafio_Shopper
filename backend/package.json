@@ -11,7 +11,7 @@
     "import:sql": "./database_install.sh",
     "start": "ts-node src/index.ts",
     "dev": "nodemon --watch \"./src/**\" --exec ts-node ./src/index.ts",
-    "dev:complete": "concurrently \"npm:dev\" \"npm run import:sql 3\""
+    "dev:complete": "concurrently \"npm:dev\" \"npm run import:sql 2 && npx sequelize-cli db:seed:all\""
   },
   "keywords": [],
   "author": "",
