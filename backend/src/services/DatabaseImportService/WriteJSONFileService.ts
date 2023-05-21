@@ -52,8 +52,19 @@ export default function writeJSONFile(data: string[], tableStructure: string[]):
       return; // pula para a próxima iteração do forEach
     }
 
-    const tableValues = valuesMatch[0].split(',').map(value => value.trim().replace(/^'(.*)'$/, '$1'));
+    const valuesString = valuesMatch[0];
+
+    /* A expressão regular abaixo é uma expressão regular que captura strings entre aspas simples, ignorando as aspas simples que estão duplicadas (ex: 'O''Reilly'). 
+    A lógica das linhas 58 à 64 é necessária para capturar os valores de forma eficiente, pois alguns nomes possuem vírgula no conteúdo, porém sendo apenas um valor. */
+    const valueRegex = /'([^']*(?:''[^']*)*)'(?:,|$)|([^,]+)/g;
+    const tableValues: any[] = [];
+    let match;
+    while ((match = valueRegex.exec(valuesString))) {
+      const value = match[1] !== undefined ? match[1].replace(/''/g, "'") : match[2];
+      tableValues.push(value);
+    }
     // console.log('tableValues', tableValues);
+
 
     const newObj = {} as any;
 

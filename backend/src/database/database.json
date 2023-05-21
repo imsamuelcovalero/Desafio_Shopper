@@ -38,9 +38,9 @@
     },
     {
       "code": "23",
-      "name": "'AGUA MINERAL BONAFONT SEM GAS 1",
-      "cost_price": "5L'",
-      "sales_price": "2.15"
+      "name": "AGUA MINERAL BONAFONT SEM GAS 1,5L",
+      "cost_price": "2.15",
+      "sales_price": "2.39"
     },
     {
       "code": "24",
@@ -50,9 +50,9 @@
     },
     {
       "code": "26",
-      "name": "'ROLO DE PAPEL ALUMINIO WYDA 30CMX7",
-      "cost_price": "5M'",
-      "sales_price": "5.21"
+      "name": "ROLO DE PAPEL ALUMINIO WYDA 30CMX7,5M",
+      "cost_price": "5.21",
+      "sales_price": "5.79"
     },
     {
       "code": "1000",
