@@ -14,11 +14,15 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
+    "types": [
+      "node"
+    ],
     "paths": {
       "*": [
         "node_modules/*"
       ]
-    }
+    },
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*"
