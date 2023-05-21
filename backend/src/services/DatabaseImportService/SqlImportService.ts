@@ -2,7 +2,7 @@
 import * as mysql from 'mysql2/promise';
 import * as dbConfig from '../../database/config/database'
 import { readFileSync } from 'fs';
-import writeJSONFile from './WriteJSONFileService';
+import writeJSONFile from './writeJSONFileService';
 
 
 const config = dbConfig as {
