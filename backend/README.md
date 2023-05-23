@@ -1,6 +1,6 @@
 ## Sumário
 - [Contexto](#contexto)
-- [Regras de Negócio](#regras-de-negocio)
+- [Regras de Negócio](#regras-de-negócio)
 - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
 - [Instalação e Execução](#instalação-e-execução)
 - [Executando com Docker](#executando-com-docker)
