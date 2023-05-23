@@ -14,7 +14,16 @@ O __Backend__ é responsável por:
 - Ao receber o sinal proveniente da interação com o botão `ATUALIZAR`, gravar as novas informações no `banco de dados`.
 
 ## Regras de Negócio
-[Aqui você pode detalhar as regras de negócio aplicadas pelo backend.]
+Em qualquer empresa de e-commerce, é essencial que os usuários possam atualizar os preços de suas lojas para se manterem competitivos e manterem seus preços alinhados com os custos de operação. Essa tarefa parece simples, porém, quando falamos de lojas com milhares de produtos, se torna essencial a existência de uma ferramenta que permita atualizar os produtos de forma massiva e com recursos adicionais para evitar erros que possam prejudicar o negócio.
+
+Após uma série de reuniões com as áreas envolvidas, os seguintes requisitos foram levantados:
+
+1. **Time de Compras**: responsável por definir os preços, se comprometeu em gerar um arquivo CSV contendo código do produto e o novo preço que será carregado.
+2. **Time Financeiro**: preocupado com o faturamento, solicitou que o sistema impeça que o preço de venda dos produtos fique abaixo do custo deles.
+3. **Time de Marketing**: preocupado com o impacto de reajustes nos clientes, solicitou que o sistema impeça qualquer reajuste maior ou menor do que 10% do preço atual do produto.
+4. **Produtos em pacotes**: Alguns produtos são vendidos em pacotes, ou seja, um produto que é composto por um ou mais produtos em quantidades diferentes. Estabeleceu-se a regra que, ao reajustar o preço de um pacote, o mesmo arquivo deve conter os reajustes dos preços dos componentes do pacote de modo que o preço final da soma dos componentes seja igual ao preço do pacote.
+
+O sistema deve seguir estas regras para garantir que os preços sejam atualizados corretamente. Caso uma ou mais regras de validação tenham sido quebradas, o sistema também deve exibir ao lado de cada produto qual regra foi quebrada.
 
 ## Tecnologias e Ferramentas Utilizadas
 O `Backend` foi desenvolvido com o uso das seguintes tecnologias e ferramentas:
