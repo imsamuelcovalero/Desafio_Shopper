@@ -1,26 +1,30 @@
 ## Sumário
 - [Contexto](#contexto)
+- [Regras de Negócio](#regras-de-negocio)
 - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
 - [Instalação e Execução](#instalação-e-execução)
 - [Executando com Docker](#executando-com-docker)
 - [Executando sem Docker](#executando-sem-docker)
 
 ## Contexto
-O __Backend__, é responsável por:
-- Montar a estrutura inicial das tabelas e relações através do `Sequelize`. Uma funcionalidade __extra__ foi criada para oferecer alguams formas de pupular o `banco de dados`.
-- Receber o conteúdo do arquivo CSV proveniente da interação com o botão`VALIDAR`, verificando a integridade inicial dos dados e em seguida consultar o `banco de dados` e aplicar as devidas as regras de negócio (acha pertinente adicionar abaixo uma seção mostrando as regras ou talvez criar uma seção a parte para isto?).
+O __Backend__ é responsável por:
+- Montar a estrutura inicial das tabelas e relações através do `Sequelize`. Uma funcionalidade __extra__ foi criada para oferecer algumas formas de popular o `banco de dados`. Também foram criados diversos `scripts` no `package.json` para cuidar da organização e inicialização correta da aplicação.
+- Receber o conteúdo do arquivo CSV proveniente da interação com o botão `VALIDAR`, verificar a integridade inicial dos dados e, em seguida, consultar o `banco de dados` e aplicar as devidas regras de negócio.
 - Devolver para o `Frontend` as informações pertinentes, a serem exibidas para o usuário. 
-- Ao receber o sinal proveninete da interação com o botão `ATUALIZAR`, gravar as novas informações no `banco de dados`.
+- Ao receber o sinal proveniente da interação com o botão `ATUALIZAR`, gravar as novas informações no `banco de dados`.
+
+## Regras de Negócio
+[Aqui você pode detalhar as regras de negócio aplicadas pelo backend.]
 
 ## Tecnologias e Ferramentas Utilizadas
 O `Backend` foi desenvolvido com o uso das seguintes tecnologias e ferramentas:
 
-- [Node.js ](https://nodejs.org/en)| Plataforma de desenvolvimento em JavaScript para construção do backend.
-- [TypeScript](https://www.typescriptlang.org/) | Linguagem de programação que adiciona tipagem estática ao JavaScript.
-- [SQL](https://www.mysql.com/) | Linguagem de consulta estruturada utilizada para interagir com o banco de dados.
-- [Joi](https://github.com/sideway/joi) | Biblioteca de validação de dados em JavaScript utilizada para validar o arquivo CSV importado.
-- [Express](https://expressjs.com/) | Framework web para Node.js utilizado para criação de rotas e endpoints do backend.
-- [Sequelize](https://sequelize.org/) | ORM (Object-Relational Mapping) em JavaScript utilizado para mapeamento objeto-relacional e interação com o banco de dados MySQL.
+- [Node.js ](https://nodejs.org/en): A plataforma de desenvolvimento em JavaScript foi escolhida para a construção do backend devido à sua alta performance, facilidade de aprendizado e ampla adoção na comunidade de desenvolvimento.
+- [TypeScript](https://www.typescriptlang.org/): Utilizei o TypeScript para adicionar tipagem estática ao JavaScript, proporcionando um nível extra de segurança e previsibilidade ao código.
+- [SQL](https://www.mysql.com/): A linguagem de consulta estruturada foi utilizada para interagir com o banco de dados, devido a sua ampla adoção e robustez comprovada.
+- [Joi](https://github.com/sideway/joi): Esta biblioteca de validação de dados em JavaScript foi escolhida por sua facilidade de uso e versatilidade na validação de diversos tipos de dados, incluindo o arquivo CSV importado.
+- [Express](https://expressjs.com/): Escolhi este framework web para Node.js devido à sua simplicidade e eficácia na criação de rotas e endpoints do backend.
+- [Sequelize](https://sequelize.org/): O Sequelize, um ORM (Object-Relational Mapping) em JavaScript, foi utilizado para facilitar a interação com o banco de dados MySQL, tornando o código mais fácil de ler e manter.
 
 ## Instalação e Execução
 ### Download do projeto
@@ -50,10 +54,10 @@ Caso prefira executar o projeto sem `Docker`, após a instalação das dependên
 ```
 cd Desafio_Shopper
 
-cd frontend
+cd backend
 npm run dev
 ```
-Este comando inicia o servidor de desenvolvimento e o site ficará disponível na porta 3001, geralmente acessível através do endereço `http://localhost:3001` no navegador.
+Este comando inicia o servidor de desenvolvimento e ficará disponível na porta 3001, geralmente acessível através do endereço `http://localhost:3001` no navegador.
 
 É importante lembrar que, ao encontrar problemas durante a instalação ou execução, uma boa prática é verificar as mensagens de erro que aparecem no terminal. Elas geralmente fornecem pistas sobre o que pode estar errado. Também é recomendável manter todas as dependências atualizadas e garantir que seu ambiente de desenvolvimento esteja configurado corretamente. Além disso, é aconselhável consultar a documentação oficial das dependências usadas no projeto em caso de problemas.
 
