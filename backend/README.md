@@ -39,14 +39,14 @@ npm install
 Esses comandos instalam todas as dependências listadas no arquivo `package.json`, que são necessárias para a execução do projeto.
 
 ## Executando com Docker
-Para executar o projeto utilizando Docker, assegure-se de ter o Docker e o Docker Compose instalados em sua máquina. Em seguida, no diretório raiz do projeto, execute o seguinte comando:
+Para executar o projeto utilizando Docker, assegure-se de ter o `Docker` e o `Docker Compose` instalados em sua máquina. Em seguida, no diretório raiz do projeto, execute o seguinte comando:
 ```
 docker-compose up -d
 ```
-O serviço `backend` será executado na porta 3001.
+O `serviço backend` será executado na porta 3001.
 
 ## Executando sem Docker
-Caso prefira executar o projeto sem Docker, após a instalação das dependências, você pode iniciar a aplicação com o seguinte comando:
+Caso prefira executar o projeto sem `Docker`, após a instalação das dependências, você pode iniciar a aplicação com o seguinte comando:
 ```
 cd Desafio_Shopper
 
