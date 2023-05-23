@@ -15,9 +15,9 @@ No lado do __Frontend__, o usuário é capaz de:
 ## Tecnologias e Ferramentas Utilizadas
 O `Frontend` foi desenvolvido com o uso das seguintes tecnologias e ferramentas:
 
-- [React.js](https://reactjs.org/docs/getting-started.html): Uma biblioteca JavaScript robusta e amplamente utilizada para a criação de interfaces de usuário.
-- [Styled Components](https://styled-components.com/): Utilizado para a estilização do CSS em formato de componente, o que facilita a leitura do código e viabiliza a implementação de temas, como o dark mode presente na aplicação.
-- [Context API](https://pt-br.reactjs.org/docs/context.html): Uma API de gerenciamento de estado, que permite compartilhar informações importantes da aplicação entre diferentes componentes, sem a necessidade de passá-las manualmente através de props.
+- [React.js](https://reactjs.org/docs/getting-started.html): Utilizei o React.js, uma biblioteca JavaScript robusta e amplamente adotada para a criação de interfaces de usuário. Sua escolha se deu pelo fato de que, além de ser uma das bibliotecas mais populares e utilizadas para esse fim, o React.js é fácil de aprender, possui uma grande comunidade de desenvolvedores, o que facilita encontrar soluções para problemas comuns, e permite a criação de interfaces de usuário altamente interativas e eficientes.
+- [Styled Components](https://styled-components.com/): O Styled Components foi selecionado como a ferramenta para a estilização do CSS em formato de componente. Esse formato facilita a leitura do código, pois permite que o CSS seja escrito da mesma maneira que o JavaScript, além de viabilizar a implementação de temas, como o dark mode presente na aplicação. Essa biblioteca auxilia na manutenção do código ao longo do tempo e oferece uma experiência de desenvolvimento aprimorada.
+- [Context API](https://pt-br.reactjs.org/docs/context.html): Para o gerenciamento de estado, optei pela Context API, uma funcionalidade incorporada ao React.js. A Context API permite compartilhar informações importantes da aplicação entre diferentes componentes, sem a necessidade de passá-las manualmente através de props. Isso contribui para um código mais limpo, fácil de entender e manter, pois elimina a necessidade de prop drilling, onde as propriedades precisam ser passadas manualmente para cada nível de componentes aninhados.
 
 ## Instalação e Execução
 ### Download do projeto
