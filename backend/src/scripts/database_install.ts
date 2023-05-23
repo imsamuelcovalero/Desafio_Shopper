@@ -16,7 +16,7 @@ async function runCommand(command: string): Promise<void> {
   });
 }
 
-// Seu argumento inicial poderia ser passado na linha de comando
+// Essa linha é necessária para o script receber uma opção pela linha de comando do package.json e executar a opção de forma automatizada
 let option = process.argv[2];
 
 if (!option) {
@@ -27,10 +27,10 @@ if (!option) {
         name: 'option',
         message: 'Escolha uma opção:',
         choices: [
-          { name: 'Popular o banco de dados', value: '1' },
-          { name: 'Criar o arquivo database.json', value: '2' },
-          { name: 'Ambos', value: '3' },
-          { name: 'Cancelar', value: '4' },
+          { name: '1) Popular o banco de dados', value: '1' },
+          { name: '2) Criar o arquivo database.json', value: '2' },
+          { name: '3) Ambos', value: '3' },
+          { name: '4) Cancelar', value: '4' },
         ],
       },
     ])
