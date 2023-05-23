@@ -36,7 +36,7 @@ npm install
 Esses comandos instalam todas as dependências listadas no arquivo `package.json`, que são necessárias para a execução do projeto.
 
 ## Executando com Docker
-Para executar o projeto utilizando `Docker`, assegure-se de ter o `Docker e o Docker Compose` instalados em sua máquina. Em seguida, no diretório raiz do projeto, execute o seguinte comando:
+Para executar o projeto utilizando `Docker`, assegure-se de ter o `Docker` e o `Docker Compose` instalados em sua máquina. Em seguida, no diretório raiz do projeto, execute o seguinte comando:
 ```
 docker-compose up -d
 ```
