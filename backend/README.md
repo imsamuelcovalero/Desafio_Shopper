@@ -6,7 +6,7 @@
 - [Executando sem Docker](#executando-sem-docker)
 
 ## Contexto
-O __backend__, é responsável por:
+O __Backend__, é responsável por:
 - Montar a estrutura inicial das tabelas e relações através do `Sequelize`. Uma funcionalidade __extra__ foi criada para oferecer alguams formas de pupular o `banco de dados`.
 - Receber o conteúdo do arquivo CSV proveniente da interação com o botão`VALIDAR`, verificando a integridade inicial dos dados e em seguida consultar o `banco de dados` e aplicar as devidas as regras de negócio (acha pertinente adicionar abaixo uma seção mostrando as regras ou talvez criar uma seção a parte para isto?).
 - Devolver para o `Frontend` as informações pertinentes, a serem exibidas para o usuário. 
