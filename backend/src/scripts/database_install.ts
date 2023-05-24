@@ -1,3 +1,4 @@
+// database_install.ts
 import { exec } from 'child_process';
 import inquirer from 'inquirer';
 import path from 'path';
