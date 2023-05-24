@@ -3,13 +3,18 @@
 O Desafio Shopper é uma ferramenta que permite a atualização massiva de preços de produtos para lojas virtuais. Com React.js no frontend e Node.js no backend, a aplicação valida os dados de um arquivo CSV, exibe as informações dos produtos e, caso não haja violações de regras, possibilita a atualização dos preços no banco de dados MySQL. 
 
 ## Sumário
-- [Bem-vindo ao Desafio_Shopper](#bem-vindo-ao-desafio-shopper)
-- [Contexto](#contexto)
-- [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
-- [Instalação e Execução](#instalação-e-execução)
-- [Notas](#notas)
-  - [Git, GitHub e Histórico de Commits](#git-github-e-histórico-de-commits)
-  - [Lint](#lint)
+- [Bem-vindo ao Desafio Shopper](#bem-vindo-ao-desafio-shopper)
+  - [Sumário](#sumário)
+  - [Contexto](#contexto)
+  - [Visualização](#visualização)
+  - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
+  - [Instalação e Execução](#instalação-e-execução)
+    - [Download do projeto](#download-do-projeto)
+    - [Instalar dependências](#instalar-dependências)
+    - [Rodar a aplicação](#rodar-a-aplicação)
+  - [Notas](#notas)
+    - [Git, GitHub e Histórico de Commits](#git-github-e-histórico-de-commits)
+    - [Lint](#lint)
 
 
 ## Contexto
@@ -17,6 +22,14 @@ O __Desafio Shopper__ é uma ferramenta desenvolvida para atender às necessidad
 - Realizem a validação dos dados
 - Visualizem as informações dos produtos
 - Caso todos os produtos estiverem validados, atualizem os preços no banco de dados.
+
+## Visualização
+
+<!-- **Visualização:** -->
+
+<div align="center">
+
+</div>
 
 ## Tecnologias e Ferramentas Utilizadas
 
