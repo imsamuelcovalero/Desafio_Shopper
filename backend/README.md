@@ -55,7 +55,7 @@ Se a validação dos dados for bem-sucedida, a rota retornará um corpo de respo
 
 ### PATCH /products
 Essa rota também espera receber um corpo de requisição no mesmo formato que o da rota POST descrita acima. Se a atualização dos preços for bem-sucedida, a rota retornará a seguinte mensagem:
-```
+```json
 "Preços atualizados com sucesso. Novo arquivo pode ser enviado para verificação"
 ```
 
