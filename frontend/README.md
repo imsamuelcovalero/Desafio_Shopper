@@ -59,6 +59,8 @@ docker-compose up -d
 
 O `serviço frontend` será executado na porta 3000.
 
+**Imporante:** Note que se já tiver executado este comando no `backend`, não será necessário executá-lo novamente, pois o `Docker Compose` já terá criado os containers necessários para a execução do projeto.
+
 ## Executando sem Docker
 
 Caso prefira executar o projeto sem `Docker`, após a instalação das dependências, você pode iniciar a aplicação com o seguinte comando:

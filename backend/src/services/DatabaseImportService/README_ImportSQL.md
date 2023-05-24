@@ -4,8 +4,8 @@
 
 - [Importação de Arquivos SQL com geração de arquivo .json e população do banco de dados](#importação-de-arquivos-sql-com-geração-de-arquivo-json-e-população-do-banco-de-dados)
   - [Sumário](#sumário)
-  - [Contexto](#contexto)
   - [Visualização](#visualização)
+  - [Contexto](#contexto)
   - [Como utilizar](#como-utilizar)
     - [Sem Docker](#sem-docker)
     - [Com Docker](#com-docker)
@@ -14,10 +14,6 @@
     - [Arquivos](#arquivos)
     - [Docker-compose](#docker-compose)
     - [Tecnologias e Ferramentas Utilizadas](#tecnologias-e-ferramentas-utilizadas)
-
-## Contexto
-
-Esta funcionalidade permite a importação de arquivos .sql para o banco de dados e/ou a geração de um arquivo .json com as informações transcritas. Isso é feito através de um `script` node que foi desenvolvido para esta finalidade. Além disso, a estrutura do `Docker-compose` foi adaptada para garantir que o `script` e a inicialização da aplicação funcionem corretamente.
 
 ## Visualização
 
@@ -28,6 +24,10 @@ Esta funcionalidade permite a importação de arquivos .sql para o banco de dado
 ![script_database](https://github.com/imsamuelcovalero/Desafio_Shopper/assets/98184355/825d677d-6ff8-4013-9a86-9671e57479e9)
 
 </div>
+
+## Contexto
+
+Esta funcionalidade permite a importação de arquivos .sql para o banco de dados e/ou a geração de um arquivo .json com as informações transcritas. Isso é feito através de um `script` node que foi desenvolvido para esta finalidade. Além disso, a estrutura do `Docker-compose` foi adaptada para garantir que o `script` e a inicialização da aplicação funcionem corretamente.
 
 ## Como utilizar
 

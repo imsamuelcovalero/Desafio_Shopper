@@ -176,6 +176,8 @@ Para executar o projeto utilizando `Docker`, assegure-se de ter o `Docker` e o `
 docker-compose up -d
 ```
 
+**Imporante:** Note que se já tiver executado este comando no `frontend`, não será necessário executá-lo novamente, pois o `Docker Compose` já terá criado os containers necessários para a execução do projeto.
+
 O `serviço backend` será executado na porta 3001.
 
 ## Executando sem Docker
