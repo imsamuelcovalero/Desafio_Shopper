@@ -78,5 +78,5 @@ Em caso de dúvidas, não hesite em abrir uma [issue](https://github.com/imsamue
 
 Espero que essas sugestões tenham sido úteis. Se houver mais alguma coisa em que eu possa ajudar, por favor, me avise.
 
-[⬆ Voltar ao topo](##sumário)<br>
+[⬆ Voltar ao topo](#sumário)<br>
 [⬅ Voltar para a página anterior](../README.md)
