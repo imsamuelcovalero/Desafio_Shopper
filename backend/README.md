@@ -30,7 +30,7 @@ O sistema deve seguir estas regras para garantir que os preços sejam atualizado
 ### POST /products
 Essa rota espera receber um corpo de requisição seguindo o formato abaixo:
 
-```
+```json
 {
   "products": [
     {
@@ -41,7 +41,7 @@ Essa rota espera receber um corpo de requisição seguindo o formato abaixo:
 }
 ```
 Se a validação dos dados for bem-sucedida, a rota retornará um corpo de resposta similar ao seguinte:
-```
+```json
 [
   {
     "code": "16",
