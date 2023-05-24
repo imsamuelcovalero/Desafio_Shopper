@@ -110,6 +110,9 @@ Na configuração do `Docker-compose`, tivemos que superar alguns desafios para 
 
 - **Volumes no Docker-compose**: Criamos dois volumes que servem propósitos específicos para o funcionamento do nosso script e aplicação:
 
+<details>
+<summary>Clique para visualizar:</summary>
+
   1. `./check-db.sh:/app/check-db.sh`: Este volume mapeia o nosso script personalizado `check-db.sh`, presente no diretório raiz do nosso projeto, para a pasta `/app` dentro do container Docker. O script `check-db.sh` é utilizado para verificar se o banco de dados está operacional antes de iniciar o serviço backend, uma função que era realizada pelo comando `condition: service_healthy` em versões anteriores do Docker Compose.
 
   2. `./backend/.docker.env:/app-backend/.env`: Este volume mapeia o arquivo `.docker.env` presente no diretório `backend` do nosso projeto para a pasta `/app-backend` dentro do container Docker. O arquivo `.env` contém variáveis de ambiente necessárias para a execução do nosso script e da aplicação em geral.
@@ -118,7 +121,9 @@ Na configuração do `Docker-compose`, tivemos que superar alguns desafios para 
   volumes:
   - ./check-db.sh:/app/check-db.sh
   - ./backend/.docker.env:/app-backend/.env
-  ```4
+  ```
+
+</details>
 
 - **Usuário e Comando no Docker-compose**:
   Definimos um usuário específico (`id 1000`, que é o padrão em sistemas Linux) para executar os scripts do package.json e definimos um comando personalizado que utiliza o nosso script personalizado:
