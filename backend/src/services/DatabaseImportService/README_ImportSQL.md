@@ -137,4 +137,4 @@ Na configuração do `Docker-compose`, tivemos que superar alguns desafios para 
 - [concurrently](https://www.npmjs.com/package/concurrently): Ferramenta para rodar múltiplos comandos npm simultaneamente.
 
 [⬆ Voltar ao topo](#importação-de-arquivos-sql)<br>
-[⬅ Voltar para a página inicial](../../README.md)
+[⬅ Voltar para a página anterior](../../../README.md)
