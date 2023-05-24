@@ -128,7 +128,7 @@ Nota: Para os erros assíncronos em geral, foi utilizada uma estrutura de `Custo
 
 ### PATCH /products
 
-Essa rota também espera receber um corpo de requisição no mesmo formato que o da rota POST descrita acima. Se a atualização dos preços no banco de dados for bem-sucedida, a rota retornará status http 200 e a seguinte mensagem:
+Essa rota também espera receber um corpo de requisição no mesmo formato que o da rota `POST` descrita acima. Se a atualização dos preços no banco de dados for bem-sucedida, a rota retornará `status http 200` e a seguinte mensagem:
 
 ```json
 "Preços atualizados com sucesso. Novo arquivo pode ser enviado para verificação"
