@@ -28,6 +28,8 @@ O __Desafio Shopper__ é uma ferramenta desenvolvida para atender às necessidad
 <!-- **Visualização:** -->
 
 <div align="center">
+ 
+![shopper](https://github.com/imsamuelcovalero/Desafio_Shopper/assets/98184355/d5c1da78-cdeb-40ee-9be5-23663b7afd1d)
 
 </div>
 
