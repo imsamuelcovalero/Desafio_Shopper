@@ -5,6 +5,7 @@
 - [Instalação e Execução](#instalação-e-execução)
 - [Executando com Docker](#executando-com-docker)
 - [Executando sem Docker](#executando-sem-docker)
+- [API](#api)
 
 ## Contexto
 O __Backend__ é responsável por:
@@ -24,6 +25,39 @@ Após uma série de reuniões com as áreas envolvidas, os seguintes requisitos 
 4. **Produtos em pacotes**: Alguns produtos são vendidos em pacotes, ou seja, um produto que é composto por um ou mais produtos em quantidades diferentes. Estabeleceu-se a regra que, ao reajustar o preço de um pacote, o mesmo arquivo deve conter os reajustes dos preços dos componentes do pacote de modo que o preço final da soma dos componentes seja igual ao preço do pacote.
 
 O sistema deve seguir estas regras para garantir que os preços sejam atualizados corretamente. Caso uma ou mais regras de validação tenham sido quebradas, o sistema também deve exibir ao lado de cada produto qual regra foi quebrada.
+
+## API
+### POST /products
+Essa rota espera receber um corpo de requisição seguindo o formato abaixo:
+
+```
+{
+  "products": [
+    {
+      "code": 16,
+      "newPrice": 20.00
+    }
+  ]
+}
+```
+Se a validação dos dados for bem-sucedida, a rota retornará um corpo de resposta similar ao seguinte:
+```
+[
+  {
+    "code": "16",
+    "name": "AZEITE  PORTUGUES  EXTRA VIRGEM GALLO 500ML",
+    "currentPrice": "20.49",
+    "newPrice": 25.5,
+    "status": [ "Reajuste inválido para o produto" ]
+  }
+]
+```
+
+### PATCH /products
+Essa rota também espera receber um corpo de requisição no mesmo formato que o da rota POST descrita acima. Se a atualização dos preços for bem-sucedida, a rota retornará a seguinte mensagem:
+```
+"Preços atualizados com sucesso. Novo arquivo pode ser enviado para verificação"
+```
 
 ## Tecnologias e Ferramentas Utilizadas
 O `Backend` foi desenvolvido com o uso das seguintes tecnologias e ferramentas:
