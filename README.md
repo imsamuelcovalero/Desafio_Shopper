@@ -1,6 +1,6 @@
 # Bem-vindo ao Desafio Shopper
 
-O __Desafio Shopper__ é uma solução que permite a atualização massiva de preços de produtos para lojas virtuais. Desenvolvida com `React.js` no `frontend` e `Node.js` e `Typescript` no backend, a aplicação processa e valida os dados de um arquivo `CSV`, exibe as informações dos produtos e, caso não haja violações de regras, efetua a atualização dos preços no banco de dados `MySQL`.
+O __Desafio Shopper__ é uma solução que permite a atualização massiva de preços de produtos para lojas virtuais. Desenvolvida com `React.js` no `frontend` e `Node.js` e `Typescript` no `backend`, a aplicação processa e valida os dados de um arquivo `CSV`, exibe as informações dos produtos e, caso não haja violações de regras, efetua a atualização dos preços no banco de dados `MySQL`.
 
 ## Sumário
 
