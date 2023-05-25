@@ -26,7 +26,7 @@ Neste projeto, o __Backend__desempenha diversas funções fundamentais, tais com
 
 Em qualquer empresa de e-commerce, é essencial que os usuários possam atualizar os preços de suas lojas para se manterem competitivos e manterem seus preços alinhados com os custos de operação. Essa tarefa parece simples, porém, quando falamos de lojas com milhares de produtos, se torna essencial a existência de uma ferramenta que permita atualizar os produtos de forma massiva e com recursos adicionais para evitar erros que possam prejudicar o negócio.
 
-Foram identificados diversos requisitos que a ferramenta deve cumprir para satisfazer as necessidades dos diferentes times na empresa::
+Foram identificados diversos requisitos que a ferramenta deve cumprir para satisfazer as necessidades dos diferentes times na empresa:
 
 <details>
 <summary>Requisitos levantados</summary>
