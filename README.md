@@ -63,3 +63,5 @@ No desenvolvimento da aplicação foi realizado utilizando o Git para controle d
 ### Lint
 
 - O projeto foi desenvolvido seguindo os padrões de Clean Code especificados pelo [Lint do Airbnb](https://github.com/airbnb/javascript).
+
+[⬆ Voltar ao topo](#sumário)
