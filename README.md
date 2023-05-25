@@ -38,7 +38,7 @@ O __Desafio Shopper__ conta com uma interface intuitiva, inclusive com opção d
 - Visualizar as informações dos produtos.
 - Atualizar os preços no banco de dados, caso todos os produtos estejam validados.
 
-Além disso, desenvolvemos uma [ferramenta de importação de banco de dados](backend/src/services/DatabaseImportService/README_ImportSQL.md), que automatiza a criação do banco de dados e a inserção dos dados iniciais.
+Além disso, desenvolvi uma [ferramenta de importação de banco de dados](backend/src/services/DatabaseImportService/README_ImportSQL.md), que automatiza a criação do banco de dados e a inserção dos dados iniciais.
 
 ## Como rodar a aplicação e detalhes do funcionamento
 
