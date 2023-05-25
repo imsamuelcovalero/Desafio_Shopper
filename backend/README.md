@@ -82,10 +82,10 @@ Essa rota espera receber um corpo de requisição seguindo o formato abaixo:
   
 </details>
   
+Se a validação dos dados for bem-sucedida, a rota retornará um corpo de resposta com `status http 200` similar ao seguinte:
+
 <details>
 <summary>Clique para visualizar:</summary>
-
-Se a validação dos dados for bem-sucedida, a rota retornará um corpo de resposta com `status http 200` similar ao seguinte:
 
 ```json
 [
