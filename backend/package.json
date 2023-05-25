@@ -13,7 +13,14 @@
     "dev": "nodemon --watch \"./src/**\" --exec ts-node ./src/index.ts",
     "dev:complete": "concurrently \"npm:dev\" \"npm run import:sql 2 && npx sequelize-cli db:seed:all\""
   },
-  "keywords": [],
+  "keywords": [
+    "backend",
+    "typescript",
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql"
+  ],
   "author": {
     "name": "Samuel Covalero dos Reis",
     "email": "reis_samuel@hotmail.com"
