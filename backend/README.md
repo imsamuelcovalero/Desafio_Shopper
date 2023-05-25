@@ -68,8 +68,12 @@ O banco de dados foi criado utilizando o `MySQL` e o `Sequelize` para gerenciar 
 
 ### Diagrama
 
-![Diagrama do banco de dados]()
+<div align="center">
+  
+![Diagrama do banco de dados](https://github.com/imsamuelcovalero/Desafio_Shopper/assets/98184355/cf010ceb-1cb3-4ed9-9d4b-02c9b83ebb13)
 
+</div>
+  
 ## API
 
 ### POST /products
