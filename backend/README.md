@@ -155,7 +155,7 @@ Essa rota também espera receber um corpo de requisição no mesmo formato que o
 
 ## Tecnologias e Ferramentas Utilizadas
 
-Na construção do `Backend`, optamos por utilizar uma variedade de tecnologias e ferramentas, selecionadas por suas vantagens específicas:
+Na construção do `Backend`, optei por utilizar uma variedade de tecnologias e ferramentas, selecionadas por suas vantagens específicas:
 
 - [Node.js](https://nodejs.org/en): A plataforma de desenvolvimento em `JavaScript` foi escolhida para a construção do backend devido à sua alta performance, facilidade de aprendizado e ampla adoção na comunidade de desenvolvimento.
 - [TypeScript](https://www.typescriptlang.org/): O `TypeScript` foi utilizado para adicionar tipagem estática ao `JavaScript`, proporcionando um nível extra de segurança e previsibilidade ao código.
